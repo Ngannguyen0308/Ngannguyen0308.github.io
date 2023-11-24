@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yellow Olaf</title>
+    <style>
+        #canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="500"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        // background
+        const window_height = window.innerHeight-100;
+        const window_width = window.innerWidth-500;
+
+        canvas.height = window_height;
+        canvas.width = window_width;
+        canvas.style.background = "#e28743"
+
+        // Draw sky
+        ctx.fillStyle = "#86d5e4";
+        ctx.fillRect(0, 0, canvas.width, canvas.height - 500);
+
+        // sun
+        ctx.beginPath();
+        ctx.arc(200, 120, 70, 0, 2 * Math.PI);
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+
+        //cloud 1
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(50, 50, 30, 0, Math.PI * 2);
+        ctx.arc(70, 50, 40, 0, Math.PI * 2);
+        ctx.arc(100, 50, 30, 0, Math.PI * 2);
+        ctx.arc(85, 65, 30, 0, Math.PI * 2);
+        ctx.arc(65, 65, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+         // cloud 2
+        ctx.fillStyle = "white";
+        ctx.moveTo(200, 100)
+        ctx.beginPath();
+        ctx.arc(350, 190, 30, 0, Math.PI * 2);
+        ctx.arc(390, 190, 40, 0, Math.PI * 2);
+        ctx.arc(370, 170, 30, 0, Math.PI * 2);
+        ctx.arc(400, 170, 30, 0, Math.PI * 2);
+        ctx.arc(350, 190, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+        //Olaf
+        ctx.fillStyle = "#eeeee4";
+
+        //body
+        ctx.beginPath();
+        ctx.arc(400, 500, 80, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //head
+        ctx.beginPath();
+        ctx.arc(400, 400, 50, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //eyes
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(380, 390, 7, 0, 2 * Math.PI);
+        ctx.arc(420, 390, 7, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //nose
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        ctx.moveTo(400, 400);
+        ctx.lineTo(410, 410);
+        ctx.lineTo(395, 410);
+        ctx.fill();
+
+        //mouth
+        ctx.beginPath();
+        ctx.arc(402, 410, 20, 0, Math.PI);
+        ctx.stroke();
+
+        //hair
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(400, 360);
+        ctx.lineTo(390, 330);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(400, 360);
+        ctx.lineTo(430, 340);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(400, 360);
+        ctx.lineTo(370, 340);
+        ctx.stroke();
+
+        //foot
+        ctx.fillStyle = "#eeeee4";
+        ctx.beginPath();
+        ctx.arc(370, 577, 25, 0, Math.PI * 2);
+        ctx.arc(440, 577, 25, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#8B4513";
+        ctx.beginPath();
+        ctx.arc(400, 500, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(400, 460, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(400, 540, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //hand
+        ctx.beginPath();
+        ctx.moveTo(330, 470);
+        ctx.lineTo(260, 400);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(470, 470);
+        ctx.lineTo(550, 500);
+        ctx.stroke();
+
+        // tree
+        ctx.fillStyle = "#8B4513"; 
+        ctx.fillRect(675, 350, 50, 150); 
+
+        ctx.fillStyle = "#228B22"; 
+        ctx.beginPath();
+        ctx.arc(700, 300, 80, 0, Math.PI * 2);
+        ctx.fill();
+
+        //mountain
+        var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, "#1ad61d"); 
+        gradient.addColorStop(1, "#056307"); 
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.moveTo(900, 400);
+        ctx.lineTo(1300, 400);
+        ctx.lineTo(1080, 200);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(800, 430);
+        ctx.lineTo(1000, 430);
+        ctx.lineTo(900, 300);
+        ctx.closePath();
+        ctx.fill();
+
+        //snow drop
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(500, 200, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+ 
+        ctx.beginPath();
+        ctx.arc(100, 200, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(160, 500, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(1000, 600, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(800, 290, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(700, 140, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(1200, 670, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(600, 770, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(500, 670, 5, 0, Math.PI * 2); 
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(300, 470, 5, 0, Math.PI * 2); 
+        ctx.fill();
+        
+
+
+
+        
+    </script>
+</body>
+</html>
