@@ -1,0 +1,23 @@
+{
+  "name": "ngannguyen0308.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ngannguyen0308/Ngannguyen0308.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ngannguyen0308/Ngannguyen0308.github.io/issues"
+  },
+  "homepage": "https://github.com/Ngannguyen0308/Ngannguyen0308.github.io#readme",
+  "dependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}
