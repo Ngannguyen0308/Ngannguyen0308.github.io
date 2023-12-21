@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Ngannguyen0308/Ngannguyen0308.github.io#readme",
   "dependencies": {
     "gh-pages": "^6.1.0",
-    "three": "^0.159.0"
+    "three": "^0.159.0",
+    "three-csg-ts": "^3.1.13"
   },
   "devDependencies": {
     "vite": "^5.0.7"
