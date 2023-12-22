@@ -23,6 +23,14 @@ const _IS_ANIMATED = Symbol("is animated");
 const _IS_VISIBLE = Symbol("is visible");
 const musicButton = document.getElementById("toggleMusicButton");
 
+musicButton.addEventListener("click", () => {
+  if (!audioContextInitialized) {
+    initAudioContext();
+    audioContextInitialized = true;
+  }
+
+  toggleMusic();
+});
 
 main();
 
@@ -58,8 +66,6 @@ function init() {
   document
     .querySelector(".canvas-container")
     .appendChild(CSSRENDERER.domElement);
-
-    musicButton.addEventListener("click", toggleMusic);
 
 }
 
@@ -284,32 +290,39 @@ function paintHoveredBalls() {
   }
 }
 
-
-function toggleMusic() {
-  if (audioElement) {
-    if (audioElement.paused) {
-      audioElement.play();
-      musicButton.textContent = "Pause Music";
-    } else {
-      audioElement.pause();
-      musicButton.textContent = "Play Music";
-    }
-  }
-}
 function loadMusic() {
-  if (!audioContextInitialized) {
-    initAudioContext();
-    audioContextInitialized = true;
-  }
-
   audioElement = new Audio('./christmasSong.mp3');
   audioElement.loop = true;
 
   const source = audioContext.createMediaElementSource(audioElement);
   source.connect(audioContext.destination);
-  audioElement.play();
-  musicButton.textContent = "Pause Music";
 }
+
+function toggleMusic() {
+  if (!audioElement) {
+    loadMusic();
+  }
+
+  if (audioContext.state === 'suspended') {
+    audioContext.resume().then(() => {
+      console.log('AudioContext resumed');
+      playAudio();
+    });
+  } else {
+    playAudio();
+  }
+}
+
+function playAudio() {
+  if (audioElement.paused) {
+    audioElement.play();
+    musicButton.textContent = "Pause Music";
+  } else {
+    audioElement.pause();
+    musicButton.textContent = "Play Music";
+  }
+}
+
 
 
 
